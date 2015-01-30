@@ -43,16 +43,9 @@ public class IntroToZoo extends JFrame
 			{
 			e.printStackTrace();
 			}
-		
-	    String zooSize = JOptionPane.showInputDialog("How many exhibits would you like to start off with? \n (Please enter a number divisible by 5)");
-	    int number = Integer.parseInt(zooSize);
-//	    int ans = Integer.parseInt( (String) JOptionPane.showInputDialog(introFrame, zooSize,
-//	            "Text",
-//	            JOptionPane.INFORMATION_MESSAGE,
-//	            null,
-//	            null,
-//	            "[sample text to help input]"));
-	    return number; 
+		 String zooSize = JOptionPane.showInputDialog("How many exhibits would you like to start off with? \n (Please enter a number divisible by 5)");
+		    int number = Integer.parseInt(zooSize);
+		    return number; 
 	    }
 	
 	}
