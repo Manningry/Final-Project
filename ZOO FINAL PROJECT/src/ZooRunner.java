@@ -3,8 +3,8 @@ public class ZooRunner {
 
 	public static void main(String[] args) {
 		
-		int createZoo = IntroToZoo.createInitialZoo();
-		IntroToZoo.initialZooLayout(createZoo);
+		int zooSize = IntroToZoo.createInitialZoo();
+		createZoo.initialZooLayout(zooSize);
 	}
 
 }

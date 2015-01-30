@@ -3,8 +3,10 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
+
 import java.util.Scanner;
 
 public class IntroToZoo extends JFrame
@@ -43,43 +45,27 @@ public class IntroToZoo extends JFrame
 			}
 		
 	    String zooSize = JOptionPane.showInputDialog("How many exhibits would you like to start off with? \n (Please enter a number divisible by 5)");
-	    int initialExhibits = UserInput.nextInt();
-	    return initialExhibits; 
+	    int number = Integer.parseInt(zooSize);
+//	    int ans = Integer.parseInt( (String) JOptionPane.showInputDialog(introFrame, zooSize,
+//	            "Text",
+//	            JOptionPane.INFORMATION_MESSAGE,
+//	            null,
+//	            null,
+//	            "[sample text to help input]"));
+	    return number; 
 	    }
 	
-	
-	
-	
-	public static void initialZooLayout (int initialExhibits)
-	{
-	
-	JOptionPane.showMessageDialog(introFrame, "Click 'OK' to see your zoo layout on the console!");
-		int zooRows = initialExhibits/5;
-		int zooColumns = 5; 
-		int counter = 1; 
-		
-		
-		
-		for(int i = 0; i < zooRows; i++)
-			{
-			for(int z = 0; z < zooColumns; z++)
-				{
-				System.out.print ("Exhibit " + counter);
-				System.out.print("     ");
-				}
-			System.out.println("\n\n");
-			
-			}
-	
-	    
-	    
-	    
-	    
-	    
-	    
-	    
 	}
-	}
+	
+	
+	
+	
+	    
+	    
+	    
+	    
+	    
+	    
 	    
 //		 final JFrame frame = new JFrame("Zoo Size");
 //			frame.setSize(400, 200);
