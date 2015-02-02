@@ -5,7 +5,7 @@ public class ZooRunner {
 		
 		int zooSize = IntroToZoo.createInitialZoo();
 		createZoo.createZooLayoutDimensions(zooSize);
-//		createZoo.addAnimals();
+		createZoo.addAnimals();
 		
 	}
 

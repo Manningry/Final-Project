@@ -4,12 +4,15 @@ import java.util.ArrayList;
 public class Animal
 	{
 
+protected String name;	
+protected int age;
+	
 static ArrayList <Animal> zooAnimals = new ArrayList <Animal> ();	
 	
-public Animal (int age, String name)
+public Animal (int a, String n)
 	{
-	int a = age;
-	String n = name;
+	age = a;
+	name = n;
 	}
 	
 public static void addAnimal()
@@ -17,7 +20,7 @@ public static void addAnimal()
 	
 	}
 
-public static String getName(String name)
+public String getName()
 	{
 	return name;
 	}

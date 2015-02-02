@@ -106,7 +106,7 @@ public static void addAnimals()
 	
 	
 	
-	myZooGrid[0][0] = Animal.zooAnimals.getName();
+	myZooGrid[0][0] = Animal.zooAnimals.get(0).getName();
 	
 	
 	System.out.println("\n\n\n\nHere is your updated zoo!\n");
