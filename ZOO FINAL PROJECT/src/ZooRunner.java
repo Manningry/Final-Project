@@ -1,3 +1,8 @@
+
+
+
+
+
 import java.util.ArrayList;
 
 
@@ -7,7 +12,7 @@ public class ZooRunner {
 		
 		int zooSize = IntroToZoo.createInitialZoo();
 		createZoo.createZooLayoutDimensions(zooSize);
-		ArrayList <Animal> animal = Owl.myAnimals();
+		ArrayList <Animal> animal = AddAnimalsToTheZoo.myAnimals();
 		createZoo.addAnimals(animal);
 	
 		

@@ -1,3 +1,7 @@
+
+
+
+
 import java.util.ArrayList;
 
 
@@ -6,16 +10,17 @@ public class Owl extends Animal
 	
 	protected String fly;
 
-	public Owl(int age, String name, String fly)
+	public Owl(int age, String name, String f)
 		{
 		super(age, name);
-		String f = fly;
+		fly = f;
 		}
 
 	public String getf()
 	{
 		return fly;
 	}
+	
 @Override
 	public String toString() {
 		return getf() + getName() + getAge();

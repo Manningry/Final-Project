@@ -68,35 +68,93 @@ public static void createZooLayoutDimensions(int initialExhibits)
 		}
 }
 
-public static void addAnimals(ArrayList<Animal> animal)
+public static void addAnimals(final ArrayList<Animal> animal)
 	{
 	
-	 final JFrame frame = new JFrame("Select Your Animals");
-		frame.setSize(400, 200);
+
+	 
+	 String[] initialAnimals = new String[] {"Animal", "Owl", "Lion"}; 
+		String[] rows = new String[zooRows]; 
+		String[] columns = new String[zooColumns];
+		
+		for(int i = 0; i < zooRows; i++)
+			{
+			rows[i] = ""+i+""; 
+			}
+		
+		for(int i = 0; i < 5; i++)
+			{
+			columns[i] = ""+i+"";
+			}
+	 
+		final JFrame frame = new JFrame("Select Your Animals");
+		frame.setSize(320, 200);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null); //Sets JPanel to center of screen 
-		
-		String[] iii = new String[] {"Ant", "Elephant", "Lion", "Hippopatamus"}; 
-		JButton button = new JButton("Enter");
-		final JComboBox<String> dropdown = new JComboBox<String>(iii);
-		final TextField txtfield = new TextField(20);
-		final JLabel words = new JLabel("ANIMALS:");
-		
+		JButton AddAnimal = new JButton("Enter");
+		JButton DoneAddingAnimals = new JButton("Finished!"); 
+		final JComboBox<String> AnimalDropdown = new JComboBox<String>(initialAnimals);
+		final JComboBox<String> RowDropdown = new JComboBox<String>(rows);
+		final JComboBox<String> ColumnDropdown = new JComboBox<String>(columns);
+		final JLabel words = new JLabel("ANIMAL:");
+		final JLabel ROW = new JLabel("ROW:");
+		final JLabel COLUMN = new JLabel("COLUMN:");
 		final JPanel panel = new JPanel();
 		panel.setBackground(Color.LIGHT_GRAY);
 		frame.add(panel);
 		panel.add(words);
-		panel.add(dropdown);
-		panel.add(txtfield);
-		panel.add(button);
-		button.addActionListener(new ActionListener()
+		panel.add(AnimalDropdown);
+		panel.add(ROW);
+		panel.add(RowDropdown);
+		panel.add(COLUMN);
+		panel.add(ColumnDropdown);
+		panel.add(AddAnimal);
+		panel.add(DoneAddingAnimals);
+		
+//		COLUMN.addActionListener(new ActionListener()
+//			{
+//			public void actionPerformed(ActionEvent arg0)
+//				{
+//				
+//				}
+//			
+//			});
+		
+		AddAnimal.addActionListener(new ActionListener()
 			{
 			public void actionPerformed(ActionEvent arg0) 
 				{
-				System.out.println(dropdown.getSelectedItem());
-				System.out.println(dropdown.getSelectedIndex());
-				System.out.println(txtfield.getText());
+				myZooGrid[0][0] = animal.get(0).getName();
+				myZooGrid[0][1] = animal.get(1).getName();
+				myZooGrid[3][0] = animal.get(2).getName();
+				myZooGrid[2][0] = animal.get(3).getName();
+				myZooGrid[2][1] = animal.get(4).getName();
+				System.out.println("\n\n\n\nHere is your updated zoo!\n");
+				counter2 = 0;
+				for(int i = 0; i < zooColumns; i++)
+					{
+						System.out.print("\t" + i + " \t\t ");
+					}
+					
+					System.out.println("\n  ______________________________________________________________________________________________________________");
+					
+					for(int i = 0; i < zooRows; i++)
+						{
+						for(int z = 0; z < zooColumns; z++)
+							{
+							if(z==0)
+								{
+								System.out.print(counter2 + "|  ");
+								}
+							System.out.print(myZooGrid[i][z] + "\t|\t");
+							counter++;
+							}
+						counter2++;
+						System.out.println("\n |______________|_______________________|_______________________|_______________________|_______________________|");
+						
+						}
+				
 				}
 			});
 		
@@ -108,6 +166,7 @@ public static void addAnimals(ArrayList<Animal> animal)
 	myZooGrid[0][1] = animal.get(1).toString();
 	myZooGrid[3][0] = animal.get(2).toString();
 	myZooGrid[2][0] = animal.get(3).toString();
+	myZooGrid[2][1] = animal.get(4).toString();
 	
 	
 	
@@ -117,31 +176,31 @@ public static void addAnimals(ArrayList<Animal> animal)
 	
 	
 	
-	System.out.println("\n\n\n\nHere is your updated zoo!\n");
-	counter2 = 0;
-	for(int i = 0; i < zooColumns; i++)
-		{
-			System.out.print("\t" + i + " \t\t ");
-		}
-		
-		System.out.println("\n  ______________________________________________________________________________________________________________");
-		
-		for(int i = 0; i < zooRows; i++)
-			{
-			for(int z = 0; z < zooColumns; z++)
-				{
-				if(z==0)
-					{
-					System.out.print(counter2 + "|  ");
-					}
-				System.out.print(myZooGrid[i][z] + "\t|\t");
-				counter++;
-				}
-			counter2++;
-			System.out.println("\n |______________|_______________________|_______________________|_______________________|_______________________|");
-			
-			}
-	
+//	System.out.println("\n\n\n\nHere is your updated zoo!\n");
+//	counter2 = 0;
+//	for(int i = 0; i < zooColumns; i++)
+//		{
+//			System.out.print("\t" + i + " \t\t ");
+//		}
+//		
+//		System.out.println("\n  ______________________________________________________________________________________________________________");
+//		
+//		for(int i = 0; i < zooRows; i++)
+//			{
+//			for(int z = 0; z < zooColumns; z++)
+//				{
+//				if(z==0)
+//					{
+//					System.out.print(counter2 + "|  ");
+//					}
+//				System.out.print(myZooGrid[i][z] + "\t|\t");
+//				counter++;
+//				}
+//			counter2++;
+//			System.out.println("\n |______________|_______________________|_______________________|_______________________|_______________________|");
+//			
+//			}
+//	
 	}
 
 
