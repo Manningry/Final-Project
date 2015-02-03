@@ -8,9 +8,6 @@ public BarnOwl(int age, String name, String fly, double flySpeed)
 	double fS = flySpeed;
 	}
 
-public static void addAnimal()
-	{
-	zooAnimals.add(new BarnOwl(14, "Jim", "Fly homie", 101));
-	}
+
 	
 	}

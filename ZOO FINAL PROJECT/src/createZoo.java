@@ -4,16 +4,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
+import java.util.ArrayList;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
-
 import java.util.Scanner;
 
 
@@ -70,7 +68,7 @@ public static void createZooLayoutDimensions(int initialExhibits)
 		}
 }
 
-public static void addAnimals()
+public static void addAnimals(ArrayList<Animal> animal)
 	{
 	
 	 final JFrame frame = new JFrame("Select Your Animals");
@@ -106,7 +104,17 @@ public static void addAnimals()
 	
 	
 	
-	myZooGrid[0][0] = Animal.zooAnimals.get(0).getName();
+	myZooGrid[0][0] = animal.get(0).toString();
+	myZooGrid[0][1] = animal.get(1).toString();
+	myZooGrid[3][0] = animal.get(2).toString();
+	myZooGrid[2][0] = animal.get(3).toString();
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	System.out.println("\n\n\n\nHere is your updated zoo!\n");

@@ -3,27 +3,43 @@ import java.util.ArrayList;
 
 public class Animal
 	{
-
+static ArrayList <Animal> animal = new ArrayList <Animal> ();
 protected String name;	
 protected int age;
 	
-static ArrayList <Animal> zooAnimals = new ArrayList <Animal> ();	
+	
 	
 public Animal (int a, String n)
 	{
 	age = a;
 	name = n;
 	}
-	
-public static void addAnimal()
-	{
-	
-	}
+
+public static ArrayList <Animal> myAnimals()
+{
+	animal.add(new Animal(14, "Boo"));
+	animal.add(new Animal(15, "Bob"));
+	animal.add(new Animal(13, "Hoo"));
+	return animal;
+}
 
 public String getName()
 	{
 	return name;
 	}
+
+public int getAge()
+{
+	return age;
+}
+
+@Override
+public String toString() {
+	return getAge() + getName();
+}
+
+
+
 
 
 

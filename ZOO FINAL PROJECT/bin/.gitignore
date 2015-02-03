@@ -1,8 +1,4 @@
-/IntroToZoo.class
-/ZooRunner.class
-/createZoo.class
-/AddAnimals.class
-/createZoo$1.class
 /Animal.class
-/Owl.class
 /BarnOwl.class
+/Owl.class
+/createZoo$1.class
