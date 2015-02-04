@@ -5,34 +5,33 @@
 import java.util.ArrayList;
 
 
-public class Owl extends Animal
+public class Owl extends AirAnimal
 	{
 	
-	protected String fly;
+	protected String owlFacts = "There are 200 different kinds of owl species. \nOwls are active at night (nocturnal). \nA group of owls is called a parliament.";
 
-	public Owl(int age, String name, String f)
+	public Owl(int age, String AnimalName, String yourName, String I, String c, String of)
 		{
-		super(age, name);
-		fly = f;
+		super(age, AnimalName, yourName, I, c);
+		owlFacts = of;
 		}
 
-	public String getf()
-	{
-		return fly;
-	}
+	public String getOwlFacts()
+		{
+		return owlFacts;
+		}
+	
 	
 @Override
-	public String toString() {
-		return getf() + getName() + getAge();
+	public String toString()
+	{
+	return getInAir() + getAnimalName() + getAge() + getYourName() + getCall() + getOwlFacts();
 	}
 
-	//	
+
+	
 	public static ArrayList <Animal> myAnimals()
 	{
-		animal.add(new Animal(14, "Boo"));
-		animal.add(new Animal(15, "Bob"));
-		animal.add(new Animal(13, "Hoo"));
-		animal.add(new Owl(13, "Bill", "Fly Away"));
 		return animal;
 	}
 	

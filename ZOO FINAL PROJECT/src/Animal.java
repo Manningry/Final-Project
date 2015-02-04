@@ -6,15 +6,17 @@ public class Animal
 	
 static ArrayList <Animal> animal = new ArrayList <Animal> ();
 
-protected String name;	
+protected String AnimalName;
+protected String yourName;
 protected int age;
 	
 	
 	
-public Animal (int a, String n)
+public Animal (int a, String n, String y)
 	{
 	age = a;
-	name = n;
+	AnimalName = n;
+	yourName = y;
 	}
 
 public static ArrayList <Animal> myAnimals()
@@ -22,9 +24,14 @@ public static ArrayList <Animal> myAnimals()
 	return animal;
 }
 
-public String getName()
+public String getAnimalName()
 	{
-	return name;
+	return AnimalName;
+	}
+
+public String getYourName()
+	{
+	return yourName;
 	}
 
 public int getAge()
@@ -34,7 +41,7 @@ public int getAge()
 
 @Override
 public String toString() {
-	return getAge() + getName();
+	return getAge() + getYourName() + getAnimalName();
 }
 
 

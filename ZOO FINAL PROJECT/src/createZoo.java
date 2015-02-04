@@ -172,7 +172,7 @@ public static void addAnimals(final ArrayList<Animal> animal)
 			public void actionPerformed(ActionEvent arg0) 
 				{
 				
-				myZooGrid[myRowValue][myColumnValue] = animal.get(myAnimalValue).getName();
+				myZooGrid[myRowValue][myColumnValue] = animal.get(myAnimalValue).toString();
 				
 				switch(myAnimalValue)
 				{

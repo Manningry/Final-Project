@@ -4,9 +4,9 @@ import java.util.ArrayList;
 public class AddAnimalsToTheZoo extends Animal
 	{
 
-	public AddAnimalsToTheZoo(int a, String n)
+	public AddAnimalsToTheZoo(int a, String n, String y)
 		{
-		super(a, n);
+		super(a, n, y);
 		// TODO Auto-generated constructor stub
 		}
 
