@@ -1,17 +1,21 @@
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
 import java.util.ArrayList;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
+
 import java.util.Scanner;
 
 
@@ -26,6 +30,11 @@ static int zooRows;
 static int zooColumns;
 static int counter = 1; 
 static int counter2 = 0; 
+public static int myRowValue;
+public static int myColumnValue;
+public static int myAnimalValue;
+static JFrame introFrame = new JFrame();
+private static String picture;
 
 
 	
@@ -73,7 +82,7 @@ public static void addAnimals(final ArrayList<Animal> animal)
 	
 
 	 
-	 String[] initialAnimals = new String[] {"Animal", "Owl", "Lion"}; 
+	 String[] initialAnimals = new String[] {"Sloth","Penguin", "Zebra", "Owl", "Lion"}; 
 		String[] rows = new String[zooRows]; 
 		String[] columns = new String[zooColumns];
 		
@@ -112,25 +121,91 @@ public static void addAnimals(final ArrayList<Animal> animal)
 		panel.add(AddAnimal);
 		panel.add(DoneAddingAnimals);
 		
-//		COLUMN.addActionListener(new ActionListener()
-//			{
-//			public void actionPerformed(ActionEvent arg0)
-//				{
-//				
-//				}
-//			
-//			});
+		//takes row dropdown selection and creates int variable
+		
+		RowDropdown.addActionListener(new ActionListener()
+			{
+			public void actionPerformed(ActionEvent arg0)
+				{
+				int myRow = RowDropdown.getSelectedIndex();
+				myRowValue = myRow;
+				}
+			});
+		
+		//takes animal dropdown selection and creates int variable
+		
+		AnimalDropdown.addActionListener(new ActionListener()
+		{
+		public void actionPerformed(ActionEvent arg0)
+			{
+			int myAnimal = AnimalDropdown.getSelectedIndex();
+			myAnimalValue = myAnimal;
+			}
+		});
+		
+		//takes animal dropdown selection and creates int variable
+		
+		ColumnDropdown.addActionListener(new ActionListener()
+		{
+		public void actionPerformed(ActionEvent arg0)
+			{
+			int myColumn = ColumnDropdown.getSelectedIndex();
+			myColumnValue = myColumn;
+			}
+		});
+		
+		//finish button exits program
+		
+		DoneAddingAnimals.addActionListener(new ActionListener()
+		{
+		public void actionPerformed(ActionEvent arg0) 
+			{
+			System.exit(0);
+			}
+		});
+		
+		//Enter button takes row variable, column variable, animal variable and uses index
+		//of ArrayList to select animal and assigns it to myZooGrid [][] location
 		
 		AddAnimal.addActionListener(new ActionListener()
 			{
 			public void actionPerformed(ActionEvent arg0) 
 				{
-				myZooGrid[0][0] = animal.get(0).getName();
-				myZooGrid[0][1] = animal.get(1).getName();
-				myZooGrid[3][0] = animal.get(2).getName();
-				myZooGrid[2][0] = animal.get(3).getName();
-				myZooGrid[2][1] = animal.get(4).getName();
-				System.out.println("\n\n\n\nHere is your updated zoo!\n");
+				
+				myZooGrid[myRowValue][myColumnValue] = animal.get(myAnimalValue).getName();
+				
+				switch(myAnimalValue)
+				{
+				case 0: picture = "sloth baby.jpg";
+				break;
+				case 1: picture = "penguin baby.jpg";
+				break;
+				case 2: picture = "zebra.jpg";
+				break;
+				case 3: picture = "Eagle_Owl_face.jpg";
+				break;
+				case 4: picture = "imgres.jpg";
+				break;
+				}
+				
+				
+				try
+				{
+				JOptionPane.showMessageDialog(introFrame, "Click 'OK' to see your new animal!");
+				BufferedImage img = ImageIO.read(new File(picture));
+				ImageIcon icon = new ImageIcon(img);
+				JLabel label = new JLabel(icon);
+				JOptionPane.showMessageDialog(null,label);
+				}
+			
+			catch(IOException e)
+				{
+				e.printStackTrace();
+				}
+
+				
+				
+				System.out.println("\n\n\n\nHere is your updated zoo!\n\n\n");
 				counter2 = 0;
 				for(int i = 0; i < zooColumns; i++)
 					{
@@ -160,47 +235,7 @@ public static void addAnimals(final ArrayList<Animal> animal)
 		
 		frame.setVisible(true);
 	
-	
-	
-	myZooGrid[0][0] = animal.get(0).toString();
-	myZooGrid[0][1] = animal.get(1).toString();
-	myZooGrid[3][0] = animal.get(2).toString();
-	myZooGrid[2][0] = animal.get(3).toString();
-	myZooGrid[2][1] = animal.get(4).toString();
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	System.out.println("\n\n\n\nHere is your updated zoo!\n");
-//	counter2 = 0;
-//	for(int i = 0; i < zooColumns; i++)
-//		{
-//			System.out.print("\t" + i + " \t\t ");
-//		}
-//		
-//		System.out.println("\n  ______________________________________________________________________________________________________________");
-//		
-//		for(int i = 0; i < zooRows; i++)
-//			{
-//			for(int z = 0; z < zooColumns; z++)
-//				{
-//				if(z==0)
-//					{
-//					System.out.print(counter2 + "|  ");
-//					}
-//				System.out.print(myZooGrid[i][z] + "\t|\t");
-//				counter++;
-//				}
-//			counter2++;
-//			System.out.println("\n |______________|_______________________|_______________________|_______________________|_______________________|");
-//			
-//			}
-//	
+
 	}
 
 

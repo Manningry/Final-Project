@@ -14,11 +14,11 @@ public class AddAnimalsToTheZoo extends Animal
 
 	public static ArrayList <Animal> myAnimals() 
 	{
-	animal.add(new Animal(14, "Boo"));
-	animal.add(new Animal(15, "Bob"));
-	animal.add(new Animal(13, "Hoo"));
-	animal.add(new Owl(13, "Bill", "Fly Away"));
-	animal.add(new Lion(3, "Jorge", "ROARRRR"));
+	animal.add(new Animal(14, "Sloth    "));
+	animal.add(new Animal(15, "Penguin    "));
+	animal.add(new Animal(13, "Zebra    "));
+	animal.add(new Owl(13, "Owl     ", "Fly Away"));
+	animal.add(new Lion(3, "Jorge    ", "ROARRRR"));
 	return animal;
 	}
 	
