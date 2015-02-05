@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Parrot extends AirAnimal
 	{
 	
-	protected String ParrotFacts = "All parrots have cuved beaks and have four toes on each foot, two forward and two backward. \n Parrots are found in warm climates.";
+	protected String ParrotFacts;
 
 	public Parrot(int age, String AnimalName, String yourName, String I, String c, String pf)
 		{

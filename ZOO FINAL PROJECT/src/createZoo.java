@@ -82,7 +82,7 @@ public static void addAnimals(final ArrayList<Animal> animal)
 	
 
 	 
-	 String[] initialAnimals = new String[] {"Sloth","Penguin", "Zebra", "Owl", "Lion"}; 
+	 String[] initialAnimals = new String[] {"Bald Eagle","Parrot", "Owl", "Sloth", "Penguin", "Zebra", "Lion"}; 
 		String[] rows = new String[zooRows]; 
 		String[] columns = new String[zooColumns];
 		
@@ -97,7 +97,7 @@ public static void addAnimals(final ArrayList<Animal> animal)
 			}
 	 
 		final JFrame frame = new JFrame("Select Your Animals");
-		frame.setSize(320, 200);
+		frame.setSize(350, 200);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null); //Sets JPanel to center of screen 
@@ -110,7 +110,7 @@ public static void addAnimals(final ArrayList<Animal> animal)
 		final JLabel ROW = new JLabel("ROW:");
 		final JLabel COLUMN = new JLabel("COLUMN:");
 		final JPanel panel = new JPanel();
-		panel.setBackground(Color.LIGHT_GRAY);
+		panel.setBackground(Color.BLACK);
 		frame.add(panel);
 		panel.add(words);
 		panel.add(AnimalDropdown);
@@ -172,19 +172,23 @@ public static void addAnimals(final ArrayList<Animal> animal)
 			public void actionPerformed(ActionEvent arg0) 
 				{
 				
-				myZooGrid[myRowValue][myColumnValue] = animal.get(myAnimalValue).toString();
+				myZooGrid[myRowValue][myColumnValue] = animal.get(myAnimalValue).getAnimalName();
 				
 				switch(myAnimalValue)
 				{
-				case 0: picture = "sloth baby.jpg";
+				case 0: picture = "bald eagle.jpg";
 				break;
-				case 1: picture = "penguin baby.jpg";
+				case 1: picture = "parrot.jpg";
 				break;
-				case 2: picture = "zebra.jpg";
+				case 2:picture = "Eagle_Owl_face.jpg";
 				break;
-				case 3: picture = "Eagle_Owl_face.jpg";
+				case 3: picture = "sloth baby.jpg";
 				break;
-				case 4: picture = "imgres.jpg";
+				case 4: picture = "penguin baby.jpg";
+				break;
+				case 5: picture = "zebra.jpg";
+				break;
+				case 6: picture = "imgres.jpg";
 				break;
 				}
 				

@@ -6,28 +6,23 @@ import java.util.ArrayList;
 	public class Lion extends Animal
 		{
 		
-		protected String roar;
 
-		public Lion(int age, String name, String r)
+		public Lion(int age, String AnimalName, String yourName)
 			{
-			super(age, name);
-			roar = r;
+			super(age, AnimalName, yourName);
+
 			}
 
-		public String getRoar()
-		{
-			return roar;
-		}
+		
 		
 	@Override
 		public String toString() {
-			return getRoar() + getName() + getAge();
+			return getYourName() + getAnimalName() + getAge();
 		}
 
 		//	
 		public static ArrayList <Animal> myAnimals()
 		{
-			animal.add(new Lion(3, "Jorge", "ROARRRR"));
 			return animal;
 		}
 	}
