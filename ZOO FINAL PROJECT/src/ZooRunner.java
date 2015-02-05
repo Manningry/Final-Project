@@ -14,6 +14,7 @@ public class ZooRunner {
 		createZoo.createZooLayoutDimensions(zooSize);
 		ArrayList <Animal> animal = AddAnimalsToTheZoo.myAnimals();
 		createZoo.addAnimals(animal);
+
 	
 		
 	}

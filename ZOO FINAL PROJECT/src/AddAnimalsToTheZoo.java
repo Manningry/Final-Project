@@ -18,10 +18,12 @@ public class AddAnimalsToTheZoo extends Animal
 	animal.add(new BaldEagle(3, " Bald Eagle ", "Captain Sam", "This animal splits its time between the ground, trees, and in the air.","Merica! Merica!", "Bald eagles are not actually bald, the name derives from older meaning \nof \"white headed\". The sexes are identical\n in plummage, but females are 25% bigger than males."));	
 	animal.add(new Parrot(22, " Parrot ", "Enrique", "This animal splits its time between the ground, trees, and in the air.", "Polly Wants a Cracker", "All parrots have cuved beaks and have four toes on each foot, two forward and two backward. \n Parrots are found in warm climates."));
 	animal.add(new Owl(11, " Owl     ", "Earl", "This animal splits its time between the ground, trees, and in the air.","Whoo whoo", "There are 200 different kinds of owl species. \nOwls are active at night (nocturnal). \nA group of owls is called a parliament."));
+	animal.add(new Flamingo(1, " Flamingo ", "Waka", "This animal splits its time between the ground, trees, and in the air.", "Squawk Squawk", "Flamingos have only six known species in the entire world. Despite common belief\n they can fly! They are a social animal and don't\n do well unles there are plenty of friends around."));
+	animal.add(new Toucan(4, " Toucan ", "Sam", "This animal splits its time between the ground, trees, and in the air.", "FROOOOT LOOOPS", "A Toucan's colorful bill make it one of the most popular\n birds in the entire world. Both sexes use their bills to catch\n fruit and toss them to one another during a mating ritual fruit toss. "));
+	
 	animal.add(new Animal(14, " Sloth   ", "Louie"));
 	animal.add(new Animal(15, " Penguin ", "Happy Feet"));
-	animal.add(new Animal(13, " Zebra   "
-			+ "", "Charles"));
+	animal.add(new Animal(13, " Zebra ", "Charles"));
 	animal.add(new Lion(3, "Lion    ", "Jorge"));
 	return animal;
 	}
