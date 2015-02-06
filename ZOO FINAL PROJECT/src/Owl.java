@@ -25,7 +25,11 @@ public class Owl extends AirAnimal
 @Override
 	public String toString()
 	{
-	return getInAir() + getAnimalName() + getAge() + getYourName() + getCall() + getOwlFacts();
+	return "Animal Species:\t" + getAnimalName() + 
+			   "\nAnimal Name\t" + getYourName() +
+			   "\nAnimal Call\t" + getCall() +
+			   "\nHabitat:\t" + getInAir() +
+			   "\nOwl Facts:\t" + getOwlFacts();
 	}
 
 

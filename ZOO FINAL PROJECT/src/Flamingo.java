@@ -22,7 +22,11 @@ public class Flamingo extends AirAnimal
 @Override
 	public String toString()
 	{
-	return getInAir() + getAnimalName() + getAge() + getYourName() + getCall() + getFlamingoFacts();
+	return "Animal Species:\t" + getAnimalName() + 
+			   "\nAnimal Name\t" + getYourName() +
+			   "\nAnimal Call\t" + getCall() +
+			   "\nHabitat:\t" + getInAir() +
+			   "\nFlamingo Facts:\t" + getFlamingoFacts();
 	}
 
 

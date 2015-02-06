@@ -22,7 +22,12 @@ public class Toucan extends AirAnimal
 @Override
 	public String toString()
 	{
-	return getInAir() + getAnimalName() + getAge() + getYourName() + getCall() + getToucanFacts();
+	return "Animal Species:\t" + getAnimalName() + 
+			   "\nAnimal Name\t" + getYourName() +
+			   "\nAnimal Call\t" + getCall() +
+			   "\nHabitat:\t" + getInAir() +
+			   "\nToucan Facts:\t" + getToucanFacts();
+			
 	}
 
 

@@ -22,7 +22,11 @@ public class BaldEagle extends AirAnimal
 @Override
 	public String toString()
 	{
-	return getInAir() + getAnimalName() + getAge() + getYourName() + getCall() + getEagleFacts();
+	return "Animal Species:\t" + getAnimalName() + 
+		   "\nAnimal Name\t" + getYourName() +
+		   "\nAnimal Call\t" + getCall() +
+		   "\nHabitat:\t" + getInAir() +
+		   "\nEagle Facts:\t" + getEagleFacts();
 	}
 
 

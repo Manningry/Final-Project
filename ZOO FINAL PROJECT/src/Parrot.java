@@ -22,7 +22,11 @@ public class Parrot extends AirAnimal
 @Override
 	public String toString()
 	{
-	return getInAir() + getAnimalName() + getAge() + getYourName() + getCall() + getParrotFacts();
+	return "Animal Species:\t" + getAnimalName() + 
+			   "\nAnimal Name\t" + getYourName() +
+			   "\nAnimal Call\t" + getCall() +
+			   "\nHabitat:\t" + getInAir() +
+			   "\nParrot Facts:\t" + getParrotFacts(); 
 	}
 
 
