@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import java.util.ArrayList;
 import java.awt.*;
@@ -20,7 +21,7 @@ import java.util.Scanner;
 
 
 
-public class createZoo
+public class createZoo 
 {
 
 static JFrame createZooFrame = new JFrame();
@@ -36,8 +37,17 @@ public static int myAnimalValue;
 public static int breedAnimal1;
 public static int breedAnimal2;
 public static int getMyAnimal=0;
+public static int getMyAnimal2=0;
 static JFrame introFrame = new JFrame();
 private static String picture;
+
+static String combinedName;
+static String userAnimalName;
+static String userCall;
+static String userFF;
+static String userHabitat;
+
+static ArrayList <Owl> List = new ArrayList <Owl> ();
 
 
 	
@@ -81,10 +91,7 @@ public static void createZooLayoutDimensions(int initialExhibits)
 }
 
 public static void addAnimals(final ArrayList<Animal> animal)
-	{
-	
-
-	 
+	{ 
 	 String[] initialAnimals = new String[] {"Bald Eagle","Parrot", "Owl", "Flamingo", "Toucan", "Sloth", "Penguin", "Zebra", "Lion"}; 
 		String[] rows = new String[zooRows]; 
 		String[] columns = new String[zooColumns];
@@ -266,15 +273,45 @@ public static void addAnimals(final ArrayList<Animal> animal)
 	
 	public static void makeNewAnimals(final ArrayList<Animal> animal) throws InterruptedException
 		{
+		myRowValue = 0;
+		myColumnValue = 0;
+		
 		String[] initialAnimals1 = new String[] {"Bald Eagle","Parrot", "Owl", "Flamingo", "Toucan", "Sloth", "Penguin", "Zebra", "Lion"};
 		String[] initialAnimals2 = new String[] {"Bald Eagle","Parrot", "Owl", "Flamingo", "Toucan", "Sloth", "Penguin", "Zebra", "Lion"};
+		String[] rows = new String[zooRows]; 
+		String[] columns = new String[zooColumns];
+		
+		for(int i = 0; i < zooRows; i++)
+		{
+		rows[i] = ""+i+""; 
+		}
+	
+	for(int i = 0; i < 5; i++)
+		{
+		columns[i] = ""+i+"";
+		}
 		
 		final JFrame makeNewAnimalsframe = new JFrame("Select Your Animals to Breed Together:");
-		makeNewAnimalsframe.setSize(350, 100);
+		makeNewAnimalsframe.setSize(500, 200);
 		makeNewAnimalsframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		makeNewAnimalsframe.setResizable(false);
 		makeNewAnimalsframe.setLocationRelativeTo(null); //Sets JPanel to center of screen 
 		
+		final JComboBox<String> RowDropdown = new JComboBox<String>(rows);
+		final JComboBox<String> ColumnDropdown = new JComboBox<String>(columns);
+		final JTextField UserAnimalName = new JTextField(30);
+		final JLabel nameLabel = new JLabel("NAME YOUR ANIMAL:");
+		final JTextField UserCall = new JTextField(30);
+		final JLabel callLabel = new JLabel("ANIMAL SOUND:");
+		final JTextField UserFunFact = new JTextField(30);
+		final JLabel ffLabel = new JLabel("ANIMAL FUN FACTS:");
+		final JTextField UserHabitat = new JTextField(30);
+		final JLabel habitatLabel = new JLabel("HABITAT:");
+		final JLabel rowLabel = new JLabel("ROW:");
+		final JLabel colLabel = new JLabel("COLUMN:");
+		final JLabel words = new JLabel("ANIMAL:");
+		final JLabel ROW = new JLabel("ROW:");
+		final JLabel COLUMN = new JLabel("COLUMN:");
 		final JLabel animal1 = new JLabel("ANIMAL1:");
 		final JComboBox<String> AnimalDropdown1 = new JComboBox<String>(initialAnimals1);
 		final JLabel animal2 = new JLabel("ANIMAL2:");
@@ -289,6 +326,17 @@ public static void addAnimals(final ArrayList<Animal> animal)
 		panel.add(AnimalDropdown1);
 		panel.add(animal2);
 		panel.add(AnimalDropdown2);
+		panel.add(rowLabel);
+		panel.add(RowDropdown);
+		panel.add(colLabel);
+		panel.add(ColumnDropdown);
+		panel.add(nameLabel);
+		panel.add(UserAnimalName);
+		panel.add(callLabel);
+		panel.add(UserCall);
+		panel.add(ffLabel);
+		panel.add(UserFunFact);
+		
 		panel.add(breed);
 		panel.add(ExitZoo);
 		
@@ -322,6 +370,58 @@ public static void addAnimals(final ArrayList<Animal> animal)
 		Thread.sleep(1000);
 		makeNewAnimalsframe.setVisible(true);
 		
+		UserAnimalName.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent e)
+			{
+				userAnimalName = UserAnimalName.getText(); 
+			}
+		});
+		
+		UserCall.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent e)
+			{
+				 userCall= UserCall.getText(); 
+			}
+		});
+		
+		UserFunFact.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent e)
+			{
+				userFF = UserFunFact.getText(); 
+			}
+		});
+		
+		UserHabitat.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent e)
+			{
+				userHabitat = UserHabitat.getText(); 
+			}
+		});
+		
+		//takes row dropdown selection and creates int variable
+		
+				RowDropdown.addActionListener(new ActionListener()
+					{
+					public void actionPerformed(ActionEvent arg0)
+						{
+						int myRow = RowDropdown.getSelectedIndex();
+						myRowValue = myRow;
+						}
+					});
+				
+				ColumnDropdown.addActionListener(new ActionListener()
+				{
+				public void actionPerformed(ActionEvent arg0)
+					{
+					int myColumn = ColumnDropdown.getSelectedIndex();
+					myColumnValue = myColumn;
+					}
+				});
+		
 		AnimalDropdown1.addActionListener(new ActionListener()
 			{
 			public void actionPerformed(ActionEvent arg0)
@@ -347,10 +447,8 @@ public static void addAnimals(final ArrayList<Animal> animal)
 				String breedAnimal1Name = animal.get(breedAnimal1).getAnimalName();
 				String breedAnimal2Name = animal.get(breedAnimal2).getAnimalName();
 				
-				String combinedName = breedAnimal1Name.substring(0,3) + breedAnimal2Name.substring(3, breedAnimal2Name.length());
-				
-				myRowValue = 0; 
-				myColumnValue = 0; 
+				combinedName = breedAnimal1Name.substring(0,3) + breedAnimal2Name.substring(3, breedAnimal2Name.length());
+				 
 				myZooGrid[myRowValue][myColumnValue] = combinedName;
 				
 				counter2 = 0;
@@ -377,12 +475,29 @@ public static void addAnimals(final ArrayList<Animal> animal)
 						
 						}
 				
-				
+					int randomAge = (int) (Math.random()*100);
+					
+					userAnimalName = "Spanky";
+					
+					
+					List.add(new Owl(randomAge, combinedName, userAnimalName, userHabitat,userCall, userFF));
 				
 				}
 			});
-
+		
+		ExitZoo.addActionListener(new ActionListener()
+		{
+		public void actionPerformed(ActionEvent arg0) 
+			{
+			makeNewAnimalsframe.setVisible(false);
+			if(makeNewAnimalsframe.isVisible()==false)
+					{
+					getAnimalInfo(animal);
+					}
 			
+			}
+		});
+
 		
 		
 		
@@ -402,21 +517,35 @@ public static void addAnimals(final ArrayList<Animal> animal)
 		{
 	
 	final JFrame frame2 = new JFrame("Get Your Animal Information");
+
 	frame2.setVisible(true);
-	String[] initialAnimals = new String[] {"Bald Eagle","Parrot", "Owl", "Flamingo", "Toucan", "Sloth", "Penguin", "Zebra", "Lion"};
-	frame2.setSize(350, 100);
+	String[] initialAnimals = new String[] {"Bald Eagle","Parrot", "Owl", "Flamingo", "Toucan", "Sloth", "Penguin", "Zebra", "Lion","UserAnimal"};
+	String[] createdAnimals = new String[List.size()];
+	
+	for(int i = 0; i < List.size(); i++)
+	{
+		
+	createdAnimals[i] = List.get(i).getAnimalName();	
+	}
+	
+	frame2.setSize(500, 100);
 	frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	frame2.setResizable(false);
 	frame2.setLocationRelativeTo(null); //Sets JPanel to center of screen 
 	JButton AnimalInfo = new JButton("Get Info");
 	JButton Finished = new JButton("Finished!"); 
 	final JComboBox<String> AnimalDropdown2 = new JComboBox<String>(initialAnimals);
-	final JLabel words = new JLabel("ANIMAL:");
+	final JComboBox<String> AnimalDropdown3 = new JComboBox<String>(createdAnimals);
+	
+	final JLabel words = new JLabel("ORIGINAL ANIMAL:");
+	final JLabel words2 = new JLabel("CREATED ANIMAL");
 	final JPanel panel = new JPanel();
 	panel.setBackground(Color.LIGHT_GRAY);
 	frame2.add(panel);
 	panel.add(words);
 	panel.add(AnimalDropdown2);
+	panel.add(words2);
+	panel.add(AnimalDropdown3);
 	panel.add(AnimalInfo);
 	panel.add(Finished);
 	
@@ -432,13 +561,29 @@ public static void addAnimals(final ArrayList<Animal> animal)
 			}
 		});
 	
+	AnimalDropdown3.addActionListener(new ActionListener()
+	{
+	public void actionPerformed(ActionEvent arg0)
+		{
+		int myAnimal3 = AnimalDropdown3.getSelectedIndex();
+		getMyAnimal2 = myAnimal3;
+		}
+	});
+	
 	
 	AnimalInfo.addActionListener(new ActionListener()
 		{
 		public void actionPerformed(ActionEvent arg0) 
 			{
-			 System.out.println("\n\nHere is your Animal information:");
-			 System.out.println("\n\n" + animal.get(getMyAnimal).toString());
+			System.out.println("\n\nHere is your Animal information:");
+			
+			if(getMyAnimal==0 && getMyAnimal2 ==0 || getMyAnimal!=0 && getMyAnimal2==0)
+			{ 
+			System.out.println("\n\n" + animal.get(getMyAnimal).toString());
+			}
+			else
+			System.out.println("\n\n" + List.get(getMyAnimal2).toString());
+			
 			}
 		});
 	
