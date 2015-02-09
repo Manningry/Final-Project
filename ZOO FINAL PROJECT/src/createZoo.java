@@ -42,12 +42,12 @@ static JFrame introFrame = new JFrame();
 private static String picture;
 
 static String combinedName;
-static String userAnimalName;
+static String userAnimalName = "Homie";
 static String userCall;
 static String userFF;
 static String userHabitat;
 
-static ArrayList <Owl> List = new ArrayList <Owl> ();
+static ArrayList <CreatedAnimals> myNewAnimals= new ArrayList <CreatedAnimals> ();
 
 
 	
@@ -336,6 +336,8 @@ public static void addAnimals(final ArrayList<Animal> animal)
 		panel.add(UserCall);
 		panel.add(ffLabel);
 		panel.add(UserFunFact);
+		panel.add(habitatLabel);
+		panel.add(UserHabitat);
 		
 		panel.add(breed);
 		panel.add(ExitZoo);
@@ -370,33 +372,35 @@ public static void addAnimals(final ArrayList<Animal> animal)
 		Thread.sleep(1000);
 		makeNewAnimalsframe.setVisible(true);
 		
-		UserAnimalName.addActionListener(new java.awt.event.ActionListener()
+		UserAnimalName.addActionListener(new ActionListener()
 		{
-			public void actionPerformed(java.awt.event.ActionEvent e)
+			public void actionPerformed(ActionEvent arg0)
 			{
 				userAnimalName = UserAnimalName.getText(); 
+				
 			}
 		});
 		
-		UserCall.addActionListener(new java.awt.event.ActionListener()
+		UserCall.addActionListener(new ActionListener()
 		{
-			public void actionPerformed(java.awt.event.ActionEvent e)
+			public void actionPerformed(ActionEvent arg0)
 			{
-				 userCall= UserCall.getText(); 
+				 userCall= UserCall.getSelectedText();
+				
 			}
 		});
 		
-		UserFunFact.addActionListener(new java.awt.event.ActionListener()
+		UserFunFact.addActionListener(new ActionListener()
 		{
-			public void actionPerformed(java.awt.event.ActionEvent e)
+			public void actionPerformed(ActionEvent arg0)
 			{
 				userFF = UserFunFact.getText(); 
 			}
 		});
 		
-		UserHabitat.addActionListener(new java.awt.event.ActionListener()
+		UserHabitat.addActionListener(new ActionListener()
 		{
-			public void actionPerformed(java.awt.event.ActionEvent e)
+			public void actionPerformed(ActionEvent arg0)
 			{
 				userHabitat = UserHabitat.getText(); 
 			}
@@ -444,10 +448,12 @@ public static void addAnimals(final ArrayList<Animal> animal)
 			{
 			public void actionPerformed(ActionEvent arg0)
 				{
+				int index = 0; 
+				
 				String breedAnimal1Name = animal.get(breedAnimal1).getAnimalName();
 				String breedAnimal2Name = animal.get(breedAnimal2).getAnimalName();
 				
-				combinedName = breedAnimal1Name.substring(0,3) + breedAnimal2Name.substring(3, breedAnimal2Name.length());
+				combinedName = breedAnimal1Name.substring(1,4) + breedAnimal2Name.substring(3, breedAnimal2Name.length());
 				 
 				myZooGrid[myRowValue][myColumnValue] = combinedName;
 				
@@ -476,14 +482,15 @@ public static void addAnimals(final ArrayList<Animal> animal)
 						}
 				
 					int randomAge = (int) (Math.random()*100);
+
 					
-					userAnimalName = "Spanky";
+					myNewAnimals.add(new CreatedAnimals(randomAge, combinedName, userAnimalName, userHabitat, userCall, userFF));
 					
-					
-					List.add(new Owl(randomAge, combinedName, userAnimalName, userHabitat,userCall, userFF));
-				
+					index++;
 				}
 			});
+		
+		
 		
 		ExitZoo.addActionListener(new ActionListener()
 		{
@@ -520,12 +527,12 @@ public static void addAnimals(final ArrayList<Animal> animal)
 
 	frame2.setVisible(true);
 	String[] initialAnimals = new String[] {"Bald Eagle","Parrot", "Owl", "Flamingo", "Toucan", "Sloth", "Penguin", "Zebra", "Lion","UserAnimal"};
-	String[] createdAnimals = new String[List.size()];
+	String[] createdAnimals = new String[myNewAnimals.size()];
 	
-	for(int i = 0; i < List.size(); i++)
+	for(int i = 0; i < myNewAnimals.size(); i++)
 	{
 		
-	createdAnimals[i] = List.get(i).getAnimalName();	
+	createdAnimals[i] = myNewAnimals.get(i).getAnimalName();	
 	}
 	
 	frame2.setSize(500, 100);
@@ -556,8 +563,8 @@ public static void addAnimals(final ArrayList<Animal> animal)
 		{
 		public void actionPerformed(ActionEvent arg0)
 			{
-			int myAnimal2 = AnimalDropdown2.getSelectedIndex();
-			getMyAnimal = myAnimal2;
+			int myAnimal = AnimalDropdown2.getSelectedIndex();
+			getMyAnimal = myAnimal;
 			}
 		});
 	
@@ -577,12 +584,22 @@ public static void addAnimals(final ArrayList<Animal> animal)
 			{
 			System.out.println("\n\nHere is your Animal information:");
 			
-			if(getMyAnimal==0 && getMyAnimal2 ==0 || getMyAnimal!=0 && getMyAnimal2==0)
+			if(getMyAnimal!=0)
 			{ 
 			System.out.println("\n\n" + animal.get(getMyAnimal).toString());
 			}
-			else
-			System.out.println("\n\n" + List.get(getMyAnimal2).toString());
+			if(getMyAnimal2!=0)
+			System.out.println("\n\n" + myNewAnimals.get(getMyAnimal2).toString());
+			else if(getMyAnimal==0 && getMyAnimal2==0)
+				{
+				int random = (int) Math.random()*100;
+				if(random <50)
+					{
+					System.out.println("\n\n" + animal.get(getMyAnimal).toString());
+					}
+				else
+					System.out.println("\n\n" + myNewAnimals.get(getMyAnimal2).toString());
+				}
 			
 			}
 		});
