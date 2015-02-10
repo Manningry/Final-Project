@@ -42,7 +42,7 @@ static JFrame introFrame = new JFrame();
 private static String picture;
 
 static String combinedName;
-static String userAnimalName = "Homie";
+static String userAnimalName;
 static String userCall;
 static String userFF;
 static String userHabitat;
@@ -372,39 +372,6 @@ public static void addAnimals(final ArrayList<Animal> animal)
 		Thread.sleep(1000);
 		makeNewAnimalsframe.setVisible(true);
 		
-		UserAnimalName.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0)
-			{
-				userAnimalName = UserAnimalName.getText(); 
-				
-			}
-		});
-		
-		UserCall.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0)
-			{
-				 userCall= UserCall.getSelectedText();
-				
-			}
-		});
-		
-		UserFunFact.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0)
-			{
-				userFF = UserFunFact.getText(); 
-			}
-		});
-		
-		UserHabitat.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0)
-			{
-				userHabitat = UserHabitat.getText(); 
-			}
-		});
 		
 		//takes row dropdown selection and creates int variable
 		
@@ -444,17 +411,28 @@ public static void addAnimals(final ArrayList<Animal> animal)
 				}
 			});
 		
+		
+		//adds UserAnimal to New ArrayList in order to retrieve To String later
+		
+
+			
 		breed.addActionListener(new ActionListener()
 			{
 			public void actionPerformed(ActionEvent arg0)
 				{
-				int index = 0; 
 				
 				String breedAnimal1Name = animal.get(breedAnimal1).getAnimalName();
 				String breedAnimal2Name = animal.get(breedAnimal2).getAnimalName();
-				
+				userAnimalName = UserAnimalName.getText();
+				userCall = UserCall.getText();
+				userFF = UserFunFact.getText();
+				userHabitat = UserHabitat.getText();
 				combinedName = breedAnimal1Name.substring(1,4) + breedAnimal2Name.substring(3, breedAnimal2Name.length());
-				 
+				
+				int randomAge = (int) (Math.random()*100);
+				myNewAnimals.add(new CreatedAnimals(randomAge, combinedName, userAnimalName, userHabitat, userCall, userFF));
+				
+				
 				myZooGrid[myRowValue][myColumnValue] = combinedName;
 				
 				counter2 = 0;
@@ -481,12 +459,9 @@ public static void addAnimals(final ArrayList<Animal> animal)
 						
 						}
 				
-					int randomAge = (int) (Math.random()*100);
-
 					
-					myNewAnimals.add(new CreatedAnimals(randomAge, combinedName, userAnimalName, userHabitat, userCall, userFF));
 					
-					index++;
+					
 				}
 			});
 		
@@ -526,13 +501,17 @@ public static void addAnimals(final ArrayList<Animal> animal)
 	final JFrame frame2 = new JFrame("Get Your Animal Information");
 
 	frame2.setVisible(true);
-	String[] initialAnimals = new String[] {"Bald Eagle","Parrot", "Owl", "Flamingo", "Toucan", "Sloth", "Penguin", "Zebra", "Lion","UserAnimal"};
-	String[] createdAnimals = new String[myNewAnimals.size()];
+	String[] initialAnimals = new String[] {"INITIAL ANIMALS", "Bald Eagle","Parrot", "Owl", "Flamingo", "Toucan", "Sloth", "Penguin", "Zebra", "Lion"};
+	String[] createdAnimals = new String[myNewAnimals.size()+1];
 	
-	for(int i = 0; i < myNewAnimals.size(); i++)
+	createdAnimals[0] = "BRED ANIMALS";
+	
+	int z = 0; 
+	for(int i = 1; i < myNewAnimals.size()+1; i++)
 	{
-		
-	createdAnimals[i] = myNewAnimals.get(i).getAnimalName();	
+	
+	createdAnimals[i] = myNewAnimals.get(z).getAnimalName();	
+	z++;
 	}
 	
 	frame2.setSize(500, 100);
@@ -572,7 +551,7 @@ public static void addAnimals(final ArrayList<Animal> animal)
 	{
 	public void actionPerformed(ActionEvent arg0)
 		{
-		int myAnimal3 = AnimalDropdown3.getSelectedIndex();
+		int myAnimal3 = AnimalDropdown3.getSelectedIndex()-1;
 		getMyAnimal2 = myAnimal3;
 		}
 	});
@@ -586,20 +565,10 @@ public static void addAnimals(final ArrayList<Animal> animal)
 			
 			if(getMyAnimal!=0)
 			{ 
-			System.out.println("\n\n" + animal.get(getMyAnimal).toString());
+			System.out.println("\n\n" + animal.get(getMyAnimal-1).toString());
 			}
-			if(getMyAnimal2!=0)
+			else if(getMyAnimal2!=0 || getMyAnimal2==0)
 			System.out.println("\n\n" + myNewAnimals.get(getMyAnimal2).toString());
-			else if(getMyAnimal==0 && getMyAnimal2==0)
-				{
-				int random = (int) Math.random()*100;
-				if(random <50)
-					{
-					System.out.println("\n\n" + animal.get(getMyAnimal).toString());
-					}
-				else
-					System.out.println("\n\n" + myNewAnimals.get(getMyAnimal2).toString());
-				}
 			
 			}
 		});

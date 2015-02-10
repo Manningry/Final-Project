@@ -23,8 +23,8 @@ public class Flamingo extends AirAnimal
 	public String toString()
 	{
 	return "Animal Species:\t" + getAnimalName() + 
-			   "\nAnimal Name\t" + getYourName() +
-			   "\nAnimal Call\t" + getCall() +
+			   "\nAnimal Name:\t" + getYourName() +
+			   "\nAnimal Call:\t" + getCall() +
 			   "\nHabitat:\t" + getInAir() +
 			   "\nFlamingo Facts:\t" + getFlamingoFacts();
 	}

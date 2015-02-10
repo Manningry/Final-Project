@@ -85,8 +85,9 @@ public String getFunFact()
 public String toString()
 	{
 	return  "Animal Species:\t" + getAnimalName() + 
-			   "\nAnimal Name\t" + getYourName() +
-			   "\nAnimal Call\t" + getCall() +
+			   "\nAnimal Name:\t" + getYourName() +
+			   "\nAnimal Age:\t" + getAge() + 
+			   "\nAnimal Call:\t" + getCall() +
 			   "\nHabitat:\t" + getHabitat() +
 			   "\nOwl Facts:\t" + getFunFact();
 	}

@@ -23,10 +23,11 @@ public class Toucan extends AirAnimal
 	public String toString()
 	{
 	return "Animal Species:\t" + getAnimalName() + 
-			   "\nAnimal Name\t" + getYourName() +
-			   "\nAnimal Call\t" + getCall() +
-			   "\nHabitat:\t" + getInAir() +
-			   "\nToucan Facts:\t" + getToucanFacts();
+			   "\nAnimal Name:\t" + getYourName() +
+			   "\nAnimal Age: \t" + getAge() + " years old" + 
+			   "\nAnimal Call:\t" + getCall() +
+			   "\nHabitat:\t" + getInAir() + "." +
+			   "\nToucan Facts:\t" + getToucanFacts() + ".";
 			
 	}
 
