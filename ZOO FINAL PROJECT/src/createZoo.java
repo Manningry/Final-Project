@@ -92,7 +92,7 @@ public static void createZooLayoutDimensions(int initialExhibits)
 
 public static void addAnimals(final ArrayList<Animal> animal)
 	{ 
-	 String[] initialAnimals = new String[] {"Bald Eagle","Parrot", "Owl", "Flamingo", "Toucan", "Sloth", "Penguin", "Zebra", "Lion"}; 
+	 String[] initialAnimals = new String[] {"Bald Eagle","Parrot", "Owl", "Flamingo", "Toucan", "Elephant", "Sloth", "Penguin", "Zebra", "Lion"}; 
 		String[] rows = new String[zooRows]; 
 		String[] columns = new String[zooColumns];
 		
@@ -276,8 +276,8 @@ public static void addAnimals(final ArrayList<Animal> animal)
 		myRowValue = 0;
 		myColumnValue = 0;
 		
-		String[] initialAnimals1 = new String[] {"Bald Eagle","Parrot", "Owl", "Flamingo", "Toucan", "Sloth", "Penguin", "Zebra", "Lion"};
-		String[] initialAnimals2 = new String[] {"Bald Eagle","Parrot", "Owl", "Flamingo", "Toucan", "Sloth", "Penguin", "Zebra", "Lion"};
+		String[] initialAnimals1 = new String[] {"Bald Eagle","Parrot", "Owl", "Flamingo", "Toucan", "Elephant", "Sloth", "Penguin", "Zebra", "Lion"};
+		String[] initialAnimals2 = new String[] {"Bald Eagle","Parrot", "Owl", "Flamingo", "Toucan", "Elephant", "Sloth", "Penguin", "Zebra", "Lion"};
 		String[] rows = new String[zooRows]; 
 		String[] columns = new String[zooColumns];
 		
@@ -434,7 +434,7 @@ public static void addAnimals(final ArrayList<Animal> animal)
 				
 				
 				myZooGrid[myRowValue][myColumnValue] = combinedName;
-				
+				System.out.println("\n\nHere is your current zoo and filled/empty exhibits!\n\n");
 				counter2 = 0;
 				for(int i = 0; i < zooColumns; i++)
 					{
@@ -501,7 +501,7 @@ public static void addAnimals(final ArrayList<Animal> animal)
 	final JFrame frame2 = new JFrame("Get Your Animal Information");
 
 	frame2.setVisible(true);
-	String[] initialAnimals = new String[] {"INITIAL ANIMALS", "Bald Eagle","Parrot", "Owl", "Flamingo", "Toucan", "Sloth", "Penguin", "Zebra", "Lion"};
+	String[] initialAnimals = new String[] {"INITIAL ANIMALS", "Bald Eagle","Parrot", "Owl", "Flamingo", "Toucan", "Elephant", "Sloth", "Penguin", "Zebra", "Lion"};
 	String[] createdAnimals = new String[myNewAnimals.size()+1];
 	
 	createdAnimals[0] = "BRED ANIMALS";
@@ -561,15 +561,20 @@ public static void addAnimals(final ArrayList<Animal> animal)
 		{
 		public void actionPerformed(ActionEvent arg0) 
 			{
-			System.out.println("\n\nHere is your Animal information:");
-			
-			if(getMyAnimal!=0)
+		
+			if(getMyAnimal==0 && getMyAnimal2==-1)
+				{
+				System.out.println("\n\nPlease enter a valid animal!");
+				}
+			else if(getMyAnimal!=0)
 			{ 
+			System.out.println("\n\nHere is your Animal information:");
 			System.out.println("\n\n" + animal.get(getMyAnimal-1).toString());
 			}
-			else if(getMyAnimal2!=0 || getMyAnimal2==0)
+			else if(getMyAnimal2>-1)
+				{System.out.println("\n\nHere is your Animal information:");
 			System.out.println("\n\n" + myNewAnimals.get(getMyAnimal2).toString());
-			
+				}
 			}
 		});
 	
@@ -577,9 +582,4 @@ public static void addAnimals(final ArrayList<Animal> animal)
 	
 			}
 }
-		
-
-
-
-
-
+	

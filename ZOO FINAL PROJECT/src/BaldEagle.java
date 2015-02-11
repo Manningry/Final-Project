@@ -24,7 +24,7 @@ public class BaldEagle extends AirAnimal
 	{
 	return "Animal Species:\t" + getAnimalName() + 
 		   "\nAnimal Name:\t" + getYourName() +
-		   "\nAnimal Age:\t" + getAge() +
+		   "\nAnimal Age:\t" + getAge() + " years old." +
 		   "\nAnimal Call:\t" + getCall() +
 		   "\nHabitat:\t" + getInAir() +
 		   "\nEagle Facts:\t" + getEagleFacts();

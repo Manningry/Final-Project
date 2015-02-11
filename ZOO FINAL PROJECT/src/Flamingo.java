@@ -24,6 +24,7 @@ public class Flamingo extends AirAnimal
 	{
 	return "Animal Species:\t" + getAnimalName() + 
 			   "\nAnimal Name:\t" + getYourName() +
+			    "\nAnimal Age:\t" + getAge() + " years old." +
 			   "\nAnimal Call:\t" + getCall() +
 			   "\nHabitat:\t" + getInAir() +
 			   "\nFlamingo Facts:\t" + getFlamingoFacts();

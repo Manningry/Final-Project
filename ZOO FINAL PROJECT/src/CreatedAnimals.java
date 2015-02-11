@@ -89,7 +89,7 @@ public String toString()
 			   "\nAnimal Age:\t" + getAge() + 
 			   "\nAnimal Call:\t" + getCall() +
 			   "\nHabitat:\t" + getHabitat() +
-			   "\nOwl Facts:\t" + getFunFact();
+			   "\nAnimal Facts:\t" + getFunFact();
 	}
 
 
