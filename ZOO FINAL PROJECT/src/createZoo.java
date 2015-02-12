@@ -92,7 +92,7 @@ public static void createZooLayoutDimensions(int initialExhibits)
 
 public static void addAnimals(final ArrayList<Animal> animal)
 	{ 
-	 String[] initialAnimals = new String[] {"Bald Eagle","Parrot", "Owl", "Flamingo", "Toucan", "Elephant", "Sloth", "Penguin", "Zebra", "Lion"}; 
+	 String[] initialAnimals = new String[] {"Bald Eagle", "Clown Fish", "Elephant", "Flamingo", "Lion", "Moose", "Octopus", "Owl", "Parrot", "Shark", "Sloth", "Toucan", "Wolf"}; 
 		String[] rows = new String[zooRows]; 
 		String[] columns = new String[zooColumns];
 		
@@ -107,7 +107,7 @@ public static void addAnimals(final ArrayList<Animal> animal)
 			}
 	 
 		final JFrame frame = new JFrame("Select Your Animals");
-		frame.setSize(350, 100);
+		frame.setSize(700, 100);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null); //Sets JPanel to center of screen 
@@ -119,9 +119,12 @@ public static void addAnimals(final ArrayList<Animal> animal)
 		final JLabel words = new JLabel("ANIMAL:");
 		final JLabel ROW = new JLabel("ROW:");
 		final JLabel COLUMN = new JLabel("COLUMN:");
+		final JLabel warning = new JLabel("WARNING: Any Exhibit in COLUMN 0 does not contain enough sufficient space for a Bald Eagle or Clown Fish to survive!!");
 		final JPanel panel = new JPanel();
 		panel.setBackground(Color.LIGHT_GRAY);
 		frame.add(panel);
+		panel.add(warning);
+		
 		panel.add(words);
 		panel.add(AnimalDropdown);
 		panel.add(ROW);
@@ -172,28 +175,41 @@ public static void addAnimals(final ArrayList<Animal> animal)
 			{
 			public void actionPerformed(ActionEvent arg0) 
 				{
-				
+				if((myAnimalValue == 0 || myAnimalValue == 1) && myColumnValue ==0)
+				{
+					System.out.println("Please read the warning!");
+				}
+				else
+				{
 				myZooGrid[myRowValue][myColumnValue] = animal.get(myAnimalValue).getAnimalName();
 				
 				switch(myAnimalValue)
 				{
 				case 0: picture = "bald eagle.jpg";
 				break;
-				case 1: picture = "parrot.jpg";
+				case 1: picture = "clown fish.jpg";
 				break;
-				case 2:picture = "Eagle_Owl_face.jpg";
+				case 2: picture = "elephant.jpg";
 				break;
 				case 3: picture = "flamingooo.jpg";
 				break;
-				case 4: picture = "toucan4.jpg";
+				case 4: picture = "imgres.jpg";
 				break;
-				case 5: picture = "sloth baby.jpg";
+				case 5: picture = "moose.jpg";
 				break;
-				case 6: picture = "penguin baby.jpg";
+				case 6: picture = "octo.jpg";
 				break;
-				case 7: picture = "zebra.jpg";
+				case 7: picture = "Eagle_Owl_face.jpg";
 				break;
-				case 8: picture = "imgres.jpg";
+				case 8: picture = "parrot.jpg";
+				break;
+				case 9: picture = "shark.jpg";
+				break;
+				case 10: picture = "sloht.jpg";
+				break;
+				case 11: picture = "toucan4.jpg";
+				break;
+				case 12: picture = "wolf.jpg";
 				break;
 				}
 				
@@ -240,8 +256,9 @@ public static void addAnimals(final ArrayList<Animal> animal)
 						}
 				
 				}
+				}
 			});
-		
+			
 		frame.setVisible(true);
 	
 
@@ -276,8 +293,10 @@ public static void addAnimals(final ArrayList<Animal> animal)
 		myRowValue = 0;
 		myColumnValue = 0;
 		
-		String[] initialAnimals1 = new String[] {"Bald Eagle","Parrot", "Owl", "Flamingo", "Toucan", "Elephant", "Sloth", "Penguin", "Zebra", "Lion"};
-		String[] initialAnimals2 = new String[] {"Bald Eagle","Parrot", "Owl", "Flamingo", "Toucan", "Elephant", "Sloth", "Penguin", "Zebra", "Lion"};
+		String[] initialAnimals1 = new String[] {"Bald Eagle", "Clown Fish", "Elephant", "Flamingo", "Lion", "Moose", "Octopus", "Owl", "Parrot", 
+				  "Shark", "Sloth", "Toucan", "Wolf"};
+		String[] initialAnimals2 = new String[] {"Bald Eagle", "Clown Fish", "Elephant", "Flamingo", "Lion", "Moose", "Octopus", "Owl", "Parrot", 
+				 "Shark", "Sloth", "Toucan", "Wolf"};
 		String[] rows = new String[zooRows]; 
 		String[] columns = new String[zooColumns];
 		
@@ -501,7 +520,8 @@ public static void addAnimals(final ArrayList<Animal> animal)
 	final JFrame frame2 = new JFrame("Get Your Animal Information");
 
 	frame2.setVisible(true);
-	String[] initialAnimals = new String[] {"INITIAL ANIMALS", "Bald Eagle","Parrot", "Owl", "Flamingo", "Toucan", "Elephant", "Sloth", "Penguin", "Zebra", "Lion"};
+	String[] initialAnimals = new String[] {"INITIAL ANIMALS", "Bald Eagle", "Clown Fish", "Elephant", "Flamingo", "Lion", "Moose", "Octopus", "Owl", "Parrot", 
+			  "Shark", "Sloth", "Toucan", "Wolf"};
 	String[] createdAnimals = new String[myNewAnimals.size()+1];
 	
 	createdAnimals[0] = "BRED ANIMALS";
@@ -523,14 +543,14 @@ public static void addAnimals(final ArrayList<Animal> animal)
 	final JComboBox<String> AnimalDropdown2 = new JComboBox<String>(initialAnimals);
 	final JComboBox<String> AnimalDropdown3 = new JComboBox<String>(createdAnimals);
 	
-	final JLabel words = new JLabel("ORIGINAL ANIMAL:");
-	final JLabel words2 = new JLabel("CREATED ANIMAL");
+//	final JLabel words = new JLabel("ORIGINAL ANIMAL:");
+//	final JLabel words2 = new JLabel("CREATED ANIMAL");
 	final JPanel panel = new JPanel();
 	panel.setBackground(Color.LIGHT_GRAY);
 	frame2.add(panel);
-	panel.add(words);
+//	panel.add(words);
 	panel.add(AnimalDropdown2);
-	panel.add(words2);
+//	panel.add(words2);
 	panel.add(AnimalDropdown3);
 	panel.add(AnimalInfo);
 	panel.add(Finished);
@@ -562,7 +582,7 @@ public static void addAnimals(final ArrayList<Animal> animal)
 		public void actionPerformed(ActionEvent arg0) 
 			{
 		
-			if(getMyAnimal==0 && getMyAnimal2==-1)
+			if(getMyAnimal<1 && getMyAnimal2<0)
 				{
 				System.out.println("\n\nPlease enter a valid animal!");
 				}
@@ -578,6 +598,14 @@ public static void addAnimals(final ArrayList<Animal> animal)
 			}
 		});
 	
+	Finished.addActionListener(new ActionListener()
+	{
+	public void actionPerformed(ActionEvent arg0) 
+		{
+		System.exit(0);
+		
+		}
+	});
 	
 	
 			}

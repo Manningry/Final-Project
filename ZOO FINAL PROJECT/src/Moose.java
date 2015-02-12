@@ -2,20 +2,19 @@
 import java.util.ArrayList;
 
 
-public class Wolf extends LandAnimal
+public class Moose extends LandAnimal
 	{
 	
-	protected String WolfFacts =  "Wolves contain 42 razor sharp teeth. At birth they weigh one pound. \n\t\tThey can spring 36-38 mph for short distances.";
-
-	public Wolf(int age, String AnimalName, String yourName, String I, String o, String of)
+	protected String MooseFacts = "Moose are the largest of the deer family. \n\t\tMales can be recognized by their large antlers, some of\n\t\twhich can grow up to 6 feet wide.";
+	public Moose(int age, String AnimalName, String yourName, String I, String o, String of)
 		{
 		super(age, AnimalName, yourName, I, o);
-		WolfFacts = of;
+		MooseFacts = of;
 		}
 
-	public String getWolfFacts()
+	public String getMooseFacts()
 		{
-		return WolfFacts;
+		return MooseFacts;
 		}
 	
 	
@@ -27,7 +26,7 @@ public class Wolf extends LandAnimal
 			   "\nAnimal Age:\t" + getAge() + " years old." +
 			   "\nAnimal Call:\t" + getCall() +
 			   "\nHabitat:\t" + getOnLand() +
-			   "\nWolf Facts:\t" + getWolfFacts();
+			   "\nMoose Facts:\t" + getMooseFacts();
 	}
 
 

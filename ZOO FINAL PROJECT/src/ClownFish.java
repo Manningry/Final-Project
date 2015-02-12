@@ -2,20 +2,20 @@
 import java.util.ArrayList;
 
 
-public class Wolf extends LandAnimal
+public class ClownFish extends SeaAnimal
 	{
 	
-	protected String WolfFacts =  "Wolves contain 42 razor sharp teeth. At birth they weigh one pound. \n\t\tThey can spring 36-38 mph for short distances.";
+	protected String CFFacts = "Clown Fish measure 4.3 inches in length. They are named\n\t\t\because of their multicolored sea anemone in which they live";
 
-	public Wolf(int age, String AnimalName, String yourName, String I, String o, String of)
+	public ClownFish(int age, String AnimalName, String yourName, String I, String o, String of)
 		{
 		super(age, AnimalName, yourName, I, o);
-		WolfFacts = of;
+		CFFacts = of;
 		}
 
-	public String getWolfFacts()
+	public String getEFacts()
 		{
-		return WolfFacts;
+		return CFFacts;
 		}
 	
 	
@@ -26,8 +26,8 @@ public class Wolf extends LandAnimal
 			   "\nAnimal Name:\t" + getYourName() +
 			   "\nAnimal Age:\t" + getAge() + " years old." +
 			   "\nAnimal Call:\t" + getCall() +
-			   "\nHabitat:\t" + getOnLand() +
-			   "\nWolf Facts:\t" + getWolfFacts();
+			   "\nHabitat:\t" + getInSea() +
+			   "\nClown Fish Facts:\t" + getEFacts();
 	}
 
 
@@ -41,3 +41,5 @@ public class Wolf extends LandAnimal
 
 	
 	}
+
+
